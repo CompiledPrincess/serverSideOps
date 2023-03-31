@@ -13,7 +13,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 @RestController
-//@PreAuthorize("isAuthenticated()")
+@PreAuthorize("isAuthenticated()")
 @RequestMapping("user/")
 
 public class UserController {
@@ -26,7 +26,7 @@ public class UserController {
         this.userDao = userDao;
     }
 
-    @RequestMapping(path = "", method = RequestMethod.GET)
+    @GetMapping("")
     public List<User> getAllUsers() {
         return userDao.findAll();
     }

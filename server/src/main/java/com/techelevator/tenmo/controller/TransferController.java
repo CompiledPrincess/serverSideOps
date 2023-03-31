@@ -16,14 +16,13 @@ import java.security.Principal;
 import java.util.List;
 
 @RestController
-//@PreAuthorize("isAuthenticated()")
+@PreAuthorize("isAuthenticated()")
 @RequestMapping("transfer/")
 public class TransferController {
     private final AccountDao accountDao;
     private final TransferDao transferDao;
     private final UserDao userDao;
 
-    //constructor
     public TransferController(AccountDao accountDao, TransferDao transferDao, UserDao userDao) {
         this.accountDao = accountDao;
         this.transferDao = transferDao;

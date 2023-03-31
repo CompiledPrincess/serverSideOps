@@ -12,13 +12,12 @@ import java.math.BigDecimal;
 import java.util.List;
 
 @RestController
-//@PreAuthorize("isAuthenticated()")
+@PreAuthorize("isAuthenticated()")
 @RequestMapping("account/")
 public class AccountController {
     private final AccountDao accountDao;
     private final UserDao userDao;
 
-    //Constructor
     public AccountController(AccountDao accountDao, UserDao userDao) {
         this.accountDao = accountDao;
         this.userDao = userDao;
@@ -40,7 +39,7 @@ public class AccountController {
     }
 
     @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping(path = "")
+    @PostMapping("")
     public boolean createNewAccount(@Valid @RequestBody Account newAccount) {
         return accountDao.createNewAccount(newAccount);
     }
